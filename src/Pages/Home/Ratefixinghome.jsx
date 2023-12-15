@@ -14,7 +14,9 @@ import {
   faClipboard,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
+import Navbar from "./Navbar";
 import "../../App.css";
+import Addcomponent from "../Innersubcontents/Ratefixing/Addcomponent"; // Import Addcomponent
 
 const Subcontent = ({ section, isOpen }) => {
   const getSubcontent = (section) => {
@@ -182,109 +184,109 @@ const Ratefixinghome = () => {
   };
 
   return (
-    <div>
-      <div className="flex items-center justify-center bg-bluecolor p-4 ">
-        <FontAwesomeIcon icon={faTrainSubway} className="text-xl font-color" />
-        <h1 className="text-2xl font-color font-bold ml-2">AIMS Server</h1>
+    <>
+      <Navbar />
+      <div className="flex overflow-y-scroll">
+        <div className="bg-bluecolor max-h-full w-fit  text-gray-300 border-r-2 border-cyan-300">
+          <div
+            className="flex align-middle items-center heading heading"
+            onClick={() => toggleSection("masters")}
+          >
+            <FontAwesomeIcon icon={faCoins} className="mr-4" />
+            <h1>Masters</h1>
+          </div>
+          <Subcontent section="masters" isOpen={sections.masters} />
+          <IconWithTitle
+            icon={faBoxesStacked}
+            title="Component"
+            hasChevron
+            onclick="toggleContentBackground(this)"
+            onClick={() => toggleSection("component")}
+            isOpen={sections.component}
+          />
+          <Subcontent section="component" isOpen={sections.component} />
+          <IconWithTitle
+            icon={faShop}
+            title="Shops"
+            hasChevron
+            onClick={() => toggleSection("shops")}
+            isOpen={sections.shops}
+          />
+          <Subcontent section="shops" isOpen={sections.shops} />
+          <IconWithTitle
+            icon={faBoxesStacked}
+            title="Sub-Assemblies"
+            hasChevron
+            onClick={() => toggleSection("subAssemblies")}
+            isOpen={sections.subAssemblies}
+          />
+          <Subcontent section="subAssemblies" isOpen={sections.subAssemblies} />
+          <IconWithTitle
+            icon={faChartSimple}
+            title="Operations"
+            hasChevron
+            onClick={() => toggleSection("operations")}
+            isOpen={sections.operations}
+          />
+          <Subcontent section="operations" isOpen={sections.operations} />
+          <div
+            className="flex heading items-center"
+            onClick={() => toggleSection("transactions")}
+          >
+            <FontAwesomeIcon icon={faMoneyBillWave} className="mr-4" />
+            <h1>Transactions</h1>
+          </div>
+          <Subcontent section="transactions" isOpen={sections.transactions} />
+          <IconWithTitle
+            icon={faAddressCard}
+            title="Jobcard(s)"
+            hasChevron
+            onClick={() => toggleSection("jobCards")}
+            isOpen={sections.jobCards}
+          />
+          <Subcontent section="jobCards" isOpen={sections.jobCards} />
+          <IconWithTitle
+            icon={faBarcode}
+            hasChevron
+            title="JC Closure Code"
+            onClick={() => toggleSection("jcClosureCode")}
+            isOpen={sections.jcClosureCode}
+          />
+          <Subcontent section="jcClosureCode" isOpen={sections.jcClosureCode} />
+          <IconWithTitle
+            icon={faCodePullRequest}
+            title="Material Requisition"
+            hasChevron
+            onClick={() => toggleSection("materialRequisition")}
+            isOpen={sections.materialRequisition}
+          />
+          <Subcontent
+            section="materialRequisition"
+            isOpen={sections.materialRequisition}
+          />
+          <div
+            className="flex heading items-center"
+            onClick={() => toggleSection("reports")}
+          >
+            <FontAwesomeIcon icon={faClipboard} className="mr-4" />
+            <h1>Reports</h1>
+          </div>
+          <Subcontent section="reports" isOpen={sections.reports} />
+          <IconWithTitle
+            icon={faSquarePlus}
+            title="Report Generation"
+            hasChevron
+            onClick={() => toggleSection("reportGeneration")}
+            isOpen={sections.reportGeneration}
+          />
+          <Subcontent
+            section="reportGeneration"
+            isOpen={sections.reportGeneration}
+          />
+        </div>
+        <Addcomponent />
       </div>
-      <div className="bg-bluecolor h-screen w-fit  text-gray-300 border-r-2 border-cyan-300">
-        <div
-          className="flex align-middle items-center heading heading"
-          onClick={() => toggleSection("masters")}
-        >
-          <FontAwesomeIcon icon={faCoins} className="mr-4" />
-          <h1>Masters</h1>
-        </div>
-        <Subcontent section="masters" isOpen={sections.masters} />
-        <IconWithTitle
-          icon={faBoxesStacked}
-          title="Component"
-          hasChevron
-          onclick="toggleContentBackground(this)"
-          onClick={() => toggleSection("component")}
-          isOpen={sections.component}
-        />
-        <Subcontent section="component" isOpen={sections.component} />
-        <IconWithTitle
-          icon={faShop}
-          title="Shops"
-          hasChevron
-          onClick={() => toggleSection("shops")}
-          isOpen={sections.shops}
-        />
-        <Subcontent section="shops" isOpen={sections.shops} />
-        <IconWithTitle
-          icon={faBoxesStacked}
-          title="Sub-Assemblies"
-          hasChevron
-          onClick={() => toggleSection("subAssemblies")}
-          isOpen={sections.subAssemblies}
-        />
-        <Subcontent section="subAssemblies" isOpen={sections.subAssemblies} />
-        <IconWithTitle
-          icon={faChartSimple}
-          title="Operations"
-          hasChevron
-          onClick={() => toggleSection("operations")}
-          isOpen={sections.operations}
-        />
-        <Subcontent section="operations" isOpen={sections.operations} />
-        <div
-          className="flex heading items-center"
-          onClick={() => toggleSection("transactions")}
-        >
-          <FontAwesomeIcon icon={faMoneyBillWave} className="mr-4" />
-          <h1>Transactions</h1>
-        </div>
-        <Subcontent section="transactions" isOpen={sections.transactions} />
-        <IconWithTitle
-          icon={faAddressCard}
-          title="Jobcard(s)"
-          hasChevron
-          onClick={() => toggleSection("jobCards")}
-          isOpen={sections.jobCards}
-        />
-        <Subcontent section="jobCards" isOpen={sections.jobCards} />
-        <IconWithTitle
-          icon={faBarcode}
-          hasChevron
-          title="JC Closure Code"
-          onClick={() => toggleSection("jcClosureCode")}
-          isOpen={sections.jcClosureCode}
-        />
-        <Subcontent section="jcClosureCode" isOpen={sections.jcClosureCode} />
-        <IconWithTitle
-          icon={faCodePullRequest}
-          title="Material Requisition"
-          hasChevron
-          onClick={() => toggleSection("materialRequisition")}
-          isOpen={sections.materialRequisition}
-        />
-        <Subcontent
-          section="materialRequisition"
-          isOpen={sections.materialRequisition}
-        />
-        <div
-          className="flex heading items-center"
-          onClick={() => toggleSection("reports")}
-        >
-          <FontAwesomeIcon icon={faClipboard} className="mr-4" />
-          <h1>Reports</h1>
-        </div>
-        <Subcontent section="reports" isOpen={sections.reports} />
-        <IconWithTitle
-          icon={faSquarePlus}
-          title="Report Generation"
-          hasChevron
-          onClick={() => toggleSection("reportGeneration")}
-          isOpen={sections.reportGeneration}
-        />
-        <Subcontent
-          section="reportGeneration"
-          isOpen={sections.reportGeneration}
-        />
-      </div>
-    </div>
+    </>
   );
 };
 
